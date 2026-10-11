@@ -36,4 +36,12 @@ jobs:
 
       - name: Run tests
         working-directory: build
-        run: ctest --output-on-failure --build-config Release
+        run: ctest --output-on-failure --build-config Release | tee test-report.txt
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-${{ matrix.os }}
+          path: build/test-report.txt
+          retention-days: 7
