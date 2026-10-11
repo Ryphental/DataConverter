@@ -10,4 +10,4 @@ std::string convert_text(const std::string& input,
 
 void convert_file(const std::string& input_path, const std::string& output_path);
 
-}  // namespace dataconv
+}  //  namespace dataconv
